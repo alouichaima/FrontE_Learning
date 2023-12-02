@@ -1,0 +1,67 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+    <!-- ? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="assets/template/img/logo/loder.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start-->
+
+
+    <main class="login-body" data-vide-bg="assets/template/img/login-bg.mp4">
+        <!-- Login Admin -->
+        <form class="form-default" action="login-bg.mp4"   >
+
+            <div class="login-form">
+                <!-- logo-login -->
+                <div class="logo-login">
+                    <a href="index.html"><img src="assets/template/img/logo/loder.png" alt=""></a>
+                </div>
+                <h2>Login Here</h2>
+                <div class="form-input">
+                    <label for="name">Email</label>
+                    <input  type="email" name="email" placeholder="Email" required="" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control" id="email">
+                </div>
+                <div class="form-input">
+                    <label for="name">Password</label>
+                    <input type="password" name="password" placeholder="Password" required="" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" class="form-control" id="password" >
+                </div>
+                <!-- <div class="aler alert-danger">
+                  {{ messageErr }}
+                </div> -->
+                <div class="form-input pt-30">
+                    <!-- <input type="submit" name="submit" value="login"> -->
+                    <button
+                    class="btn btn-primary btn-block btn-lg waves-effect waves-light" (click)="Login()">
+                    Log In
+                  </button>
+                </div>
+
+                <!-- Forget Password -->
+                <a href="#" class="forget">Forget Password</a>
+                <!-- Forget Password -->
+                <a href="./inscri" class="registration">Registration</a>
+            </div>
+        </form>
+        <!-- /end login form -->
+    </main>
+
+
+
+
+    </body>
+</html>
