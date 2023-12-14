@@ -10,6 +10,7 @@ import { AdminLayoutComponent } from './layout/admin_layout/admin-layout/admin-l
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DeleteformateurComponent } from './view/admin/formateur/deleteformateur/deleteformateur.component';
+import { ProfilLayoutComponent } from './layout/profil-layout/profil-layout.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { DeleteformateurComponent } from './view/admin/formateur/deleteformateur
     UserlayoutComponent,
     AdminLayoutComponent,
     DeleteformateurComponent,
+    ProfilLayoutComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,8 +3,9 @@
 </mat-toolbar>
 
 <div class="container allformateur-container">
-  <a mat-raised-button color="primary" routerLink="/admin/addformateur">Add</a>
-  <!-- Ajoutez le bouton pour la liste -->
+  <!-- <a mat-raised-button color="primary" routerLink="/admin/addformateur">Add</a> -->
+  <a href="javascript:;" class="btn btn-sm btn-outline-primary"  routerLink="/admin/addformateur">Ajouter</a>
+
 </div>
 
 
@@ -51,7 +52,7 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef>Actions</th>
         <td mat-cell *matCellDef="let formateur">
-        <a [routerLink]="['/editformateur', formateur.id]"
+        <!-- <a [routerLink]="['/editformateur', formateur.id]"
 
           ><mat-icon
           aria-hidden="false"
@@ -59,7 +60,11 @@
           fontIcon="edit"
           >
           </mat-icon
-        ></a>
+        ></a> -->
+
+        <a [routerLink]="['/editformateur', formateur.id]">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
+        </a>
         <mat-icon
           (click)="openDeleteModal(formateur.id)"
           aria-hidden="false"

@@ -30,7 +30,7 @@
 
 <main class="login-body" data-vide-bg="assets/template/img/login-bg.mp4">
     <!-- Login Admin -->
-    <form class="form-default" action="login-bg.mp4" >
+    <form class="form-default" (ngSubmit)="save()" method="post">
 
         <div class="login-form">
             <!-- logo-login -->
@@ -64,10 +64,28 @@
               <input type="number" name="telephone" placeholder="Telphone" [(ngModel)]="telephone" [ngModelOptions]="{standalone: true}">
           </div>
 
+          <!-- <div class="form-input">
+            <label for="role">Rôle</label>
+            <select name="role" [(ngModel)]="selectedRole">
+                <option value="APPRENANT">Apprenant</option>
+                <option value="FORMATEUR">Formateur</option>
+            </select>
+        </div> -->
+
+        <mat-form-field>
+          <mat-label>Rôle</mat-label>
+          <mat-select disableRipple [(ngModel)]="selectedRole" name="role">
+            <mat-option value="APPRENANT">Apprenant</mat-option>
+            <mat-option value="FORMATEUR">Formateur</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br><br>
+
+
             <!-- <div class="form-input pt-30">
                 <input type="submit" name="submit" value="Registration">
             </div> -->
-            <button type="submit" class="btn btn-primary" (click)="save()">Register</button>
+            <button type="submit" class="btn btn-primary" >Register</button>
 
             <!-- Forget Password -->
             <a href="./login" class="registration">login</a>

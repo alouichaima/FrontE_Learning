@@ -24,7 +24,6 @@ import { EditformateurComponent } from './editformateur.component';
      MatCardModule,
     MatSelectModule,
      MatButtonModule,
-
     EditformateurRoutingModule,
     FormsModule
   ]

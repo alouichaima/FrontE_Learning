@@ -29,11 +29,12 @@ export class EditformateurComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((param) => {
-      var id = Number(param.get('id'));
-      this.getById(id);
+    this.route.params.subscribe(params => {
+      const formateurId = params['id'];
+      this.getById(formateurId); // Utilisez l'ID du formateur pour obtenir ses détails
     });
   }
+
 
   getById(id: number) {
     this.formateurService.getById(id).subscribe((data) => {

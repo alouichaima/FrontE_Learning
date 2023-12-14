@@ -8,59 +8,58 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  email: string ="";
-  password: string ="";
-  constructor(private router: Router,private http: HttpClient) {}
+  email: string = "";
+  password: string = "";
+
+  constructor(private router: Router, private http: HttpClient) {}
 
   Login() {
     console.log(this.email);
     console.log(this.password);
 
-    let bodyData = {
+    const bodyData = {
       email: this.email,
       password: this.password,
     };
 
-        this.http.post("http://localhost:8069/api/auth/login", bodyData).subscribe(  (resultData: any) => {
-        console.log(resultData);
+    this.http.post("http://localhost:8069/api/auth/login", bodyData).subscribe(
+      (resultData: any) => {
+        console.log("Server Response:", resultData);
 
-        if (resultData.message == "Email not exits")
-        {
+        if (resultData.message === "Email not exists") {
+          alert("Email does not exist");
+        } else if (resultData.message === "Login Success" && resultData.status === true) {
+          console.log("Login successful");
 
-          alert("Email not exits");
+          // Inspectez la réponse complète pour identifier la propriété correcte pour le rôle
+          console.log("Full Response:", resultData);
 
+          // Adapté en fonction de la structure réelle de la réponse du serveur
+          const userRole = resultData.userRole;
 
+          if (userRole ==="ADMIN") {
+            console.log("admin");
+            this.router.navigate(['/admin/dashboard']);
+          } else if (userRole === "FORMATEUR") {
+            this.router.navigateByUrl('/profile');
+          } else if (userRole === "APPRENANT") {
+            this.router.navigateByUrl('/apprenant');
+          } else {
+            console.error("Unknown user role or role not defined");
+            // Ajoutez ici la logique pour traiter les autres cas (par exemple, rediriger vers une page par défaut)
+          }
+        } else {
+          alert("Incorrect Email and Password combination");
         }
-        else if(resultData.message == "Login Success")
-
-         {
-          this.router.navigateByUrl('/formation');
-        }
-        else
-        {
-          alert("Incorrect Email and Password not match");
-        }
-
       },
       (error: any) => {
-        console.error("Erreur lors de la requête HTTP :", error);
-        // try {
-        //   // Vérifier si la réponse est au format JSON
-        //   if (error.error && typeof error.error === 'object') {
-        //     console.log(error.error);
-        //   } else {
-        //     console.log("La réponse n'est pas au format JSON. Contenu de la réponse :", error.error);
-        //   }
-        // } catch (e) {
-        //   console.log("La réponse n'est pas au format JSON. Contenu de la réponse :", error.error);
-        // }
-
-
+        console.error("Error during HTTP request:", error);
       }
-
-      );
-    }
+    );
+  }
 
 
 
 }
+
+

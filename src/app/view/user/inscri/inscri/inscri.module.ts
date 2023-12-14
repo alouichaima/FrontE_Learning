@@ -5,6 +5,8 @@ import { InscriRoutingModule } from './inscri-routing.module';
 import { InscriComponent } from './inscri.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     InscriRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule,
+     MatSelectModule
 
   ]
 })
